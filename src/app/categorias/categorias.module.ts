@@ -9,19 +9,25 @@ import {TableModule} from 'primeng/table';
 import { CategoriasService } from './categorias.service';
 import {ToastModule} from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { FormsModule } from '@angular/forms';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import { CategoriasCadastroComponent } from './categorias-cadastro/categorias-cadastro.component';
 
 @NgModule({
-  declarations: [CategoriasPesquisaComponent],
+  declarations: [CategoriasPesquisaComponent, CategoriasCadastroComponent],
   imports: [
     CommonModule,
     InputTextModule,
     ButtonModule,
     TooltipModule,
     TableModule,
-    ToastModule
+    ToastModule,
+    FormsModule,
+    ConfirmDialogModule
   ],
   exports:[
-    CategoriasPesquisaComponent
+    CategoriasPesquisaComponent,
+    CategoriasCadastroComponent
   ],
   providers: [
     CategoriasService,
