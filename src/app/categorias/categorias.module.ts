@@ -12,6 +12,7 @@ import { MessageService } from 'primeng/api';
 import { FormsModule } from '@angular/forms';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { CategoriasCadastroComponent } from './categorias-cadastro/categorias-cadastro.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [CategoriasPesquisaComponent, CategoriasCadastroComponent],
@@ -23,7 +24,8 @@ import { CategoriasCadastroComponent } from './categorias-cadastro/categorias-ca
     TableModule,
     ToastModule,
     FormsModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    RouterModule
   ],
   exports:[
     CategoriasPesquisaComponent,
