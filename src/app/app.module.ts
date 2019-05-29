@@ -1,3 +1,5 @@
+import { ProdutosModule } from './produtos/produtos.module';
+import { ProdutosCadastroComponent } from './produtos/produtos-cadastro/produtos-cadastro.component';
 import { CidadesModule } from './cidades/cidades.module';
 import { CidadesCadastroComponent } from './cidades/cidades-cadastro/cidades-cadastro.component';
 import { ButtonModule } from 'primeng/button';
@@ -18,6 +20,7 @@ import {Routes, RouterModule} from '@angular/router';
 const rotas: Routes = [
   {path: '', redirectTo:'categorias', pathMatch:'full'},
   {path: 'cidades', component: CidadesCadastroComponent},
+  {path: 'produtos', component:ProdutosCadastroComponent},
   {path: 'categorias', component: CategoriasPesquisaComponent},
   {path: 'categorias/novo', component: CategoriasCadastroComponent},
   {path: 'categorias/:id', component: CategoriasCadastroComponent}
@@ -32,6 +35,7 @@ const rotas: Routes = [
     BrowserAnimationsModule,
     CategoriasModule,
     CidadesModule,
+    ProdutosModule,
     HttpClientModule,
     SidebarModule,
     ButtonModule,

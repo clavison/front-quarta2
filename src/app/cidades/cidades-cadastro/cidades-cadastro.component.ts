@@ -24,53 +24,53 @@ export class CidadesCadastroComponent implements OnInit {
   ngOnInit() {
     this.pesquisarEstados();
     const codigoCidade = this.rota.snapshot.params['id'];
-    if(codigoCidade){
+    if (codigoCidade) {
       this.carregarCidade(codigoCidade);
     }
   }
 
-  carregarCidade(id:number){
+  carregarCidade(id: number) {
     this.service.buscarPorCodigo(id)
       .then((data) => {
         this.cidade = data;
       }
-    );
+      );
   }
 
   inserir(form: FormControl) {
     this.service.adicionar(this.cidade)
-    .then( ()=>{
-      this.messageService.add({severity:'success', summary:'Cadastro', detail:'Cidade '+this.cidade.nome+' cadastrada'});
-      form.reset();
-    });
+      .then(() => {
+        this.messageService.add({ severity: 'success', summary: 'Cadastro', detail: 'Cidade ' + this.cidade.nome + ' cadastrada' });
+        form.reset();
+      });
   }
 
   alterar(form: FormControl) {
     this.service.alterar(this.cidade)
-    .then( ()=>{
-      this.messageService.add({severity:'success', summary:'Edição', detail:'Cidade '+this.cidade.nome+' alterada'});
-      form.reset();
-    });
+      .then(() => {
+        this.messageService.add({ severity: 'success', summary: 'Edição', detail: 'Cidade ' + this.cidade.nome + ' alterada' });
+        form.reset();
+      });
   }
 
   salvar(form: FormControl) {
-    if(this.editando){
+    if (this.editando) {
       this.alterar(form);
-    }else{
+    } else {
       this.inserir(form);
     }
   }
 
-  get editando(){
+  get editando() {
     return Boolean(this.cidade.id);
   }
 
-  pesquisarEstados(){
+  pesquisarEstados() {
     this.service.listarUf()
-    .then((dados)=>{
-      this.estados=dados
-      .map(e => ({ label: e.nome, value: e.id }));
-    });
+      .then((dados) => {
+        this.estados = dados
+          .map(e => ({ label: e.nome, value: e.id }));
+      });
   }
 
 }
