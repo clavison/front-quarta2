@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Produto } from './model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class ProdutosService {
 
-  produtosURL = 'http://localhost:8080/produtos';
+  produtosURL =  environment.urlServicos+'/produtos';
 
   constructor(private http: HttpClient) { }
 

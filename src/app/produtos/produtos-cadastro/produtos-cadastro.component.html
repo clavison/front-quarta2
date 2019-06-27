@@ -15,7 +15,7 @@
       </div>
       <div class="ui-g-12 ui-md-9 ui-fluid">
         <label>Preço</label>
-        <input pInputText type="text" name="preco" [(ngModel)]="produto.preco" #nome="ngModel" required>
+        <input pInputText type="text" name="preco" [(ngModel)]="produto.preco" #nome="ngModel" currencyMask [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }" required>
         <div *ngIf="nome.hasError('required') && nome.touched">Informe um preço</div>
       </div>
       <div class="ui-g-12 ui-md-9 ui-fluid">

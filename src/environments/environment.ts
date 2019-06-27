@@ -3,7 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  urlServicos: 'https://pweb-quarta-8023.herokuapp.com'
 };
 
 /*

@@ -1,3 +1,4 @@
+import { environment } from 'src/environments/environment.prod';
 import { Cidade } from './model';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 })
 export class CidadesService {
 
-  cidadesURL = 'http://localhost:8080/cidades';
+  cidadesURL =  environment.urlServicos+'/cidades';
 
 
   constructor(
@@ -20,7 +21,7 @@ export class CidadesService {
   }
 
   listarUf(): Promise<any> {
-    return this.http.get<any>('http://localhost:8080/estados').toPromise();
+    return this.http.get<any>( environment.urlServicos+'/estados').toPromise();
   }
 
   excluir(id:number):Promise<void>{

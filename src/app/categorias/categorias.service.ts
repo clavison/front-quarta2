@@ -1,13 +1,14 @@
 import { Categoria } from './model';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoriasService {
 
-  categoriasURL = 'http://localhost:8080/categorias';
+  categoriasURL = environment.urlServicos+'/categorias';
   urlFiltro;
 
   constructor(private http: HttpClient) { }
@@ -16,9 +17,9 @@ export class CategoriasService {
 
   pesquisar(filtro: any): Promise<any> {
     if(filtro.nome){
-      this.urlFiltro = 'http://localhost:8080/categorias/filtro?nome='+filtro.nome;
+      this.urlFiltro =  environment.urlServicos+'/categorias/filtro?nome='+filtro.nome;
     }else{
-      this.urlFiltro = 'http://localhost:8080/categorias';
+      this.urlFiltro =  environment.urlServicos+'/categorias';
     }
 
     return this.http.get<any>(this.urlFiltro).toPromise();
